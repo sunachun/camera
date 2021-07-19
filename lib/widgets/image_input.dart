@@ -24,6 +24,9 @@ class _ImageInputState extends State<ImageInput> {
       source: ImageSource.camera,
       maxWidth: 600,
     );
+    if (imageFile == null) {
+      return;
+    }
     setState(() {
       _storeImage = File(imageFile.path);
     });
@@ -59,7 +62,7 @@ class _ImageInputState extends State<ImageInput> {
           alignment: Alignment.center,
         ),
         SizedBox(width: 10),
-        FlatButton(
+        Expanded(
           child: FlatButton.icon(
             icon: Icon(Icons.camera),
             label: Text('Take Picture'),
