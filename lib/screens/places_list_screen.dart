@@ -20,7 +20,7 @@ class PlacesListScreen extends StatelessWidget {
       ),
       body: Consumer<GreatPlaces>(
         child: Center(
-          child: Text('Got no places yet, start adding some!'),
+          child: const Text('Got no places yet, start adding some!'),
         ),
         builder: (ctx, greatPlaces, ch) => greatPlaces.items.length <= 0
             ? ch
@@ -34,7 +34,7 @@ class PlacesListScreen extends StatelessWidget {
                   ),
                   title: Text(greatPlaces.items[i].title),
                   onTap: () {
-                    // go to detail page...
+                    // Go to detail page ...
                   },
                 ),
               ),

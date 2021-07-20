@@ -16,23 +16,23 @@ class ImageInput extends StatefulWidget {
 }
 
 class _ImageInputState extends State<ImageInput> {
-  File _storeImage;
+  File _storedImage;
 
   Future<void> _takePicture() async {
     final picker = ImagePicker();
     final imageFile = await picker.getImage(
-      source: ImageSource.camera,
+      source: ImageSource.gallery,
       maxWidth: 600,
     );
     if (imageFile == null) {
       return;
     }
     setState(() {
-      _storeImage = File(imageFile.path);
+      _storedImage = File(imageFile.path);
     });
     final appDir = await syspaths.getApplicationDocumentsDirectory();
     final fileName = path.basename(imageFile.path);
-    final savedImage = await _storeImage.copy('${appDir.path}/$fileName}');
+    final savedImage = await _storedImage.copy('${appDir.path}/$fileName');
     widget.onSelectImage(savedImage);
   }
 
@@ -44,14 +44,11 @@ class _ImageInputState extends State<ImageInput> {
           width: 150,
           height: 100,
           decoration: BoxDecoration(
-            border: Border.all(
-              width: 1,
-              color: Colors.grey,
-            ),
+            border: Border.all(width: 1, color: Colors.grey),
           ),
-          child: _storeImage != null
+          child: _storedImage != null
               ? Image.file(
-                  _storeImage,
+                  _storedImage,
                   fit: BoxFit.cover,
                   width: double.infinity,
                 )
@@ -61,7 +58,9 @@ class _ImageInputState extends State<ImageInput> {
                 ),
           alignment: Alignment.center,
         ),
-        SizedBox(width: 10),
+        SizedBox(
+          width: 10,
+        ),
         Expanded(
           child: FlatButton.icon(
             icon: Icon(Icons.camera),

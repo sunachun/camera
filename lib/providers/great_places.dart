@@ -10,7 +10,10 @@ class GreatPlaces with ChangeNotifier {
     return [..._items];
   }
 
-  void addPlace(String pickedTitle, File pickedImage) {
+  void addPlace(
+    String pickedTitle,
+    File pickedImage,
+  ) {
     final newPlace = Place(
       //新しいプレイスを作成
       id: DateTime.now().toString(),

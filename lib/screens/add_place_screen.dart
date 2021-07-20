@@ -42,7 +42,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
             child: SingleChildScrollView(
               //スクロールできるようにする
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
                 child: Column(
                   children: <Widget>[
                     TextField(
