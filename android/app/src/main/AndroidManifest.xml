@@ -5,6 +5,8 @@
    <application
         android:label="camera"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyATLLjA8GX6hEvZruVTvZd6Ff13Uo-UFKw"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
